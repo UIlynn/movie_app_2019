@@ -1,11 +1,16 @@
 import React from 'react';
-import Potato from './Potato';
+
+// function Food(props){
+function Food({fav}){ // 객체의 비구조화 - 필요한 속성만 가져와보기
+  // console.log(props.fav);
+  return <h1>I Like {fav}</h1>
+}
 
 function App() {
   return (
     <div>
       <h1>Hello!</h1>
-      <Potato />
+      <Food fav="kimchi"/>
     </div>
   );
 }
