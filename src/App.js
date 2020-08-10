@@ -24,9 +24,16 @@ class App extends React.Component{
 
   add = () => { 
     console.log("add")
+    // setState가 실행 될 때 render 메소드가 다시 실행된다.
+    // this.setState({count : 1});
+    // this.setState({count : this.state.count +1 });
+    this.setState(current => ({count : current.count +1 }));
   };
   minus = () => {
     console.log("minus")
+    // this.setState({count : -1});
+    // this.setState({count : this.state.count -1 });
+    this.setState(current => ({count : current.count -1 }));
   };
 
   render(){
