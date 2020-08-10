@@ -17,7 +17,7 @@ class Home extends React.Component{
  
     // 위를 es6로 변경
     const {data:{data:{movies}}} = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
-    console.log(movies)
+    // console.log(movies)
 
     // state에 movies를 변경
     // this.setState({movies:movies});
