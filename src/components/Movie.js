@@ -5,10 +5,11 @@ import {Link} from "react-router-dom";
 
 // state가 딱히 필요하지 않는 경우는 function component
 // state가 필요하면 class component
-function Movie({year, title, summary, poster, genres}){
+function Movie({id, year, title, summary, poster, genres}){
     return (
       <Link to={{
-        pathname : '/movie-detail',
+        // pathname : '/movie-detail',
+        pathname : `/movie/${id}`, // id-url 패턴 반영
         state : { // 이동하면 전송할 값
           year : year, // 기존 표현
           title, // ES6표현

@@ -15,7 +15,9 @@ function App(){
       {/* exact={true} : 완벽할 때 렌더링*/}
       <Route path="/" exact={true} component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/movie-detail" component={Detail} />
+      {/* <Route path="/movie-detail" component={Detail} /> */}
+      {/* id-url 패턴 반영 */}
+      <Route path="/movie/:id" component={Detail} /> 
     </HashRouter>
   );
 }
