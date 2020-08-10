@@ -1,42 +1,40 @@
 import React from 'react';
-import PropTypes from "prop-types";
-
-
-// Food의 유효성 검사
-Food.propTypes = {
-  name:PropTypes.string.isRequired,
-  picture : PropTypes.string.isRequired,
-  rating : PropTypes.number,
-}
-
-function Food({name, picture, rating}){ // 객체의 비구조화 - 필요한 속성만 가져와보기
-  return <div>
-    <h2>I like {name}</h2>
-    <h4>{rating}/5</h4>
-    <img src={picture} alt={name}/>  
-  </div>
-}
 
 class App extends React.Component{
+  // Mounting - constructor()
+  constructor(props){
+    super(props)
+    console.log("> constructor") // 1번
+  }
+
   state = {
     count : 0,
   };
 
   add = () => { 
-    console.log("add")
-    // setState가 실행 될 때 render 메소드가 다시 실행된다.
-    // this.setState({count : 1});
-    // this.setState({count : this.state.count +1 });
     this.setState(current => ({count : current.count +1 }));
   };
   minus = () => {
-    console.log("minus")
-    // this.setState({count : -1});
-    // this.setState({count : this.state.count -1 });
     this.setState(current => ({count : current.count -1 }));
   };
 
+  // Mounting - componentDidMout()
+  componentDidMount(){
+    console.log("> rendered") // 3번
+  }
+
+  // Update - componentDidUpdate()
+  componentDidUpdate(){
+    console.log("> updated") // 4번... 이후 이벤트나 컴포넌트 변경이 있을 경우 render->updated
+  }
+
+  // UnMounting - componentWillUnmount()
+  componentWillUnmount(){
+    console.log("> unmounting~")
+  }
+
   render(){
+    console.log("> render") // 2번
     return (
       <div>
         <h1>The number is {this.state.count}</h1>
